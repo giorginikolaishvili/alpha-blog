@@ -1,2 +1,29 @@
+$navbar-default-bg: lightgrey;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#logo {
+  float: left;
+  font-size: 18px;
+  color: green;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: blue;
+}
+
+.jumbotron {
+  background-image: asset-url("ror.jpg");
+  background-size: cover;
+  height: 500px;
+}
+.btn-xlarge{
+  font-size: 20px;
+}
+.footer{
+  background-color: aquamarine;
+  color:black;
+}
