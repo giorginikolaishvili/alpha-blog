@@ -20,11 +20,24 @@ $navbar-default-bg: lightgrey;
   background-size: cover;
   height: 500px;
 }
-.btn-xlarge{
+
+.btn-xlarge {
   font-size: 20px;
 }
-.footer{
+
+.footer {
   background-color: aquamarine;
-  color:black;
+  color: black;
   margin-top: 30px;
+}
+
+.article-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.article-body {
+  border-top: 1px solid #eaeaea;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
