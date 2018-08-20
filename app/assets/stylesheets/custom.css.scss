@@ -14,7 +14,10 @@ $navbar-default-bg: lightgrey;
 #logo:hover {
   color: blue;
 }
-
+.article-details{
+border-top:1px solid #eaeaea;
+margin-top: 15px;
+}
 .jumbotron {
   background-image: asset-url("ror.jpg");
   background-size: cover;

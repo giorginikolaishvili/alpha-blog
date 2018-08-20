@@ -9,6 +9,11 @@
       </div>
       <div class="article-body">
         <%= truncate(art.description, length: 50) %>
+      <div class="article-details">
+        <small>Created by: <%= art.user.username%> ,
+        <%= time_ago_in_words(art.updated_at)%> ago,
+        last updated: <%= time_ago_in_words(art.updated_at)%> ago </small>
+      </div>
       </div>
       <div class="row">
         <div class="col-ms-6">
@@ -18,5 +23,4 @@
       </div>
     </div>
   </div>
-
 <% end %>
