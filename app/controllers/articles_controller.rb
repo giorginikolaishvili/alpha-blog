@@ -41,6 +41,17 @@ class ArticlesController < ApplicationController
     flash[:danger] = "Article destroyed"
     redirect_to articles_path
   end
+  def search
+    @result=params[:res]
+    Article.all.each do |article|
+      if   article.title==@result
+        redirect_to article_path(article.id)
+        return
+      end
+    end
+        flash[:error]="Cant find article with name #{@result}"
+        redirect_to root_path
+end
 
   private
 
