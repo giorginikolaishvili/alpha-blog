@@ -14,11 +14,13 @@
   <h3 align="center">Description: </h3>
   <hr>
   <%= simple_format(@article.description) %>
+  <%if logged_in? && current_user==@article.user%>
   <div class="row">
     <div class="col-ms-6">
-      <%= link_to "Edit this article", edit_article_path(@article), class:"btn btn-primary" %>
-      <%= link_to "Back to articles", articles_path %>
+      <%= link_to "Edit this articlse", edit_article_path(@article), class:"btn btn-primary" %>
       <%= link_to "Delete this article", article_path(@article), method: :delete, class: "btn btn-danger", data: {confirm: "are you sure ? "} %>
     </div>
   </div>
+  <%end%>
+  <%= link_to "Back to articles", articles_path %>
 </div>

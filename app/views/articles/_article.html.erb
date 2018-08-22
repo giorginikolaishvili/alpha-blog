@@ -13,12 +13,15 @@
         last updated: <%= time_ago_in_words(art.updated_at)%> ago </small>
       </div>
       </div>
+    <%if logged_in? && current_user==art.user%>
       <div class="row">
         <div class="col-ms-6">
           <%= link_to "Edit this article", edit_article_path(art), class: "btn btn-primary" %>
-          <%= link_to "Delete this article", article_path(art), method: :delete, class: "btn btn-danger", data: {confirm: "are you sure ? "} %>
+          <%= link_to "Delete this article", article_path(art), method: :delete, class: "btn btn-danger",
+           data: {confirm: "are you sure ? "} %>
         </div>
       </div>
+    <%end%>
     </div>
   </div>
 <% end %>
