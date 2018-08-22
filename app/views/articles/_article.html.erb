@@ -8,10 +8,11 @@
       <div class="article-body">
         <%= truncate(art.description, length: 50) %>
       <div class="article-details">
-        <p>Created by: <%= art.user.username%> ,
+        <p>Created by: <%= art.user.username if art.user%> ,
         <%= time_ago_in_words(art.updated_at)%> ago,
         last updated: <%= time_ago_in_words(art.updated_at)%> ago </p>
       </div>
+      
       </div>
     <%if logged_in? && current_user==art.user%>
       <div class="row">
