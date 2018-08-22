@@ -1,6 +1,7 @@
 class UsersController <ApplicationController
-    before_action :set_user, only: [:edit,:update,:show]
-    before_action :require_same_user, only: [:edit, :update]
+    before_action :set_user, only: [:edit,:update,:show,:destroy]
+    before_action :require_same_user, only: [:edit, :update,:destroy]
+    before_action :require_admin, only:[:destroy]
     def new
         @user=User.new
     end
@@ -29,6 +30,11 @@ class UsersController <ApplicationController
     def index
         @users=User.paginate(page: params[:page],per_page:5)
     end
+    def destroy
+        @user.destroy
+        flash[:danger]="User destroyed with his/her articles"
+        redirect_to articles_path
+    end
     private
     def set_params
         params.require(:user).permit(:username,:email,:password)
@@ -37,9 +43,15 @@ class UsersController <ApplicationController
         @user = User.find(params[:id])
       end
     def require_same_user
-        if !logged_in? || current_user != @user
+        if current_user != @user && !current_user.admin?
             flash[:danger]="You can't edit other users"
             redirect_to root_path
     end
-end
+  end
+  def require_admin
+    if logged_in? && !current_user.admin?
+        flash[:danger]="You can't do that, you're not admin"
+            redirect_to root_path
+    end
+  end
 end 
