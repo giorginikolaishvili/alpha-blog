@@ -19,13 +19,22 @@
         </div>
       </div>
       <div class="form-group">
+        <div class="row">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |chbx| %>
+            <% chbx.label(class: "checkbox-inline input_checkbox") {chbx.check_box(class: "checkbox")+chbx.text}%>
+            <%end%>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <%= f.submit class: "btn btn-primary btn-lg" %>
         </div>
       </div>
     <% end %>
     <div style="text-decoration: underline; font-weight: bold"
-         class="col-sm-offset-5">
+        class="col-sm-offset-5">
       <%= link_to "Cancel and Back to articles", articles_path %>
     </div>
   </div>

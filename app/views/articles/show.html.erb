@@ -16,6 +16,9 @@
   <h3 align="center">Description: </h3>
   <hr>
   <%= simple_format(@article.description) %>
+  <%if @article.categories.any?%>
+  <p>Categories: <%= render @article.categories %></p>
+  <%end%>
   <%if logged_in? && (current_user==@article.user || current_user.admin?)%>
   <div class="row">
     <div class="col-ms-6">
